@@ -1,0 +1,22 @@
+apiVersion: camel.apache.org/v1alpha1
+kind: KameletBinding
+metadata:
+  name: s3-sink
+spec:
+  source:
+    ref:
+      apiVersion: messaging.knative.dev/v1
+      kind: Channel
+      name: messages
+  sink:
+    ref:
+      kind: Kamelet
+      apiVersion: camel.apache.org/v1alpha1
+      name: aws-s3-streaming-upload-sink
+    properties:
+      accessKey: "<your-key>"
+      bucketNameOrArn: "camel-k"
+      keyName: "messages"
+      region: "eu-west-1"
+      secretKey: "<your-secret>"
+      batchMessageNumber: 5
