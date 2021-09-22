@@ -1,7 +1,7 @@
 apiVersion: camel.apache.org/v1alpha1
 kind: KameletBinding
 metadata:
-  name: telegram-source
+  name: telegram-source-binding
 spec:
   source:
     ref:
